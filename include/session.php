@@ -45,15 +45,15 @@
         echo 'Welcome, ' . $_SESSION['username'] . '!';
     } else {
         // the user is not logged in, display the login form
-        echo '<form method="post" action="">
-              <label for="username">Username:</label>
-              <input type="text" name="username" id="username">
-              <br>
-              <label for="password">Password:</label>
-              <input type="password" name="password" id="password">
-              <br>
-              <button type="submit">Login</button>
-          </form>';
+       // echo '<form method="post" action="">
+        //      <label for="username">Username:</label>
+          //    <input type="text" name="username" id="username">
+            //  <br>
+              //<label for="password">Password:</label>
+              //<input type="password" name="password" id="password">
+              //<br>
+              //<button type="submit">Login</button>
+          //</form>';
     }
     }
 

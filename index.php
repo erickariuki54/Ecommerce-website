@@ -27,9 +27,9 @@ include "./include/datetime.php";
 <body>
     <div class="container">
         <div class="row">
-            <div class="sm-col-2">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                    <a class="navbar-brand" style="color: rgb(102, 145, 180);">Royal Technologies</a>
+            <div class="sm-col-2 md-col-2 lg-col-2">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                    <a class="navbar-brand" style="color:blue; font-size:30px;">Royal Technologies</a>
                     <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -38,8 +38,14 @@ include "./include/datetime.php";
                             <li class="nav-item active">
                                 <a class="nav-link" href="#"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#"><i class="fa fa-book" aria-hidden="true"></i> categories </a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: black;"><i class="fa fa-book" aria-hidden="true"></i> categories</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#phones"><i class="fa fa-phone" aria-hidden="true"></i> Phones</a>
+                                    <a class="dropdown-item" href="#laptops"><i class="fa fa-laptop" aria-hidden="true"></i> laptops</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#tab4Id"> accessories</a>
+                                </div>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="#"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> sign up</a>
@@ -88,7 +94,7 @@ include "./include/datetime.php";
                   </div>
                   
                   <!--phone-->
-                  <h2>phones</h2>
+                  <h2 id="phones">phones</h2>
                   <div class="owl-carousel owl-carousel-2">
                   <?php $viewQuery= "SELECT * FROM products WHERE category='phones'" ;
                             $execute = mysqli_query($conn, $viewQuery);
@@ -117,13 +123,13 @@ include "./include/datetime.php";
                           <img src="./assets/images/phones/<?php echo $image;?>" alt="<?php $name;?>" height="200px" width="100px">
                           
                           <p class="lead"><?php echo $details; ?></p>
-                          <a class="btn btn-primary btn-lg" href="#" role="button">ksh <?php echo $price; ?></a>
+                          <a class="btn btn-primary btn-lg" href="product.php?id=<?php echo $id;?>" role="button">ksh <?php echo $price; ?></a>
                         </div>
                       </div></div>
                       <?php  }?>
                   </div>
                   <!--laptops-->
-                  <h2>laptops</h2>
+                  <h2 id="laptops">laptops</h2>
                   
                   
                   
