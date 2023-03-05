@@ -1,3 +1,11 @@
+<?php
+include "./include/datetime.php";
+include  "./include/db.php";
+include "./include/functions.php";
+include "./include/session.php";
+global $conn;
+global $DateTime;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +15,8 @@
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="./assets/css/style.css">
+
 <title>Royal Tec Login</title>
 </head>
 <body class="background">
@@ -17,22 +26,27 @@
             <div class="card">
               <div class="card-header">
                 <h4 class="text-center">Login</h4>
+                <span>
+                  <?php echo SuccessMessage();
+                  echo Message();?>
+
+                </span>
               </div>
               <div class="card-body">
-                <form>
+                <form method="post" action="./redirect.php">
                   <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username">
+                    <input type="text" class="form-control" id="username" name="username">
                   </div>
                   <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password" name="password">
                   </div>
-                  <button type="submit" class="btn btn-primary btn-block mt-4">Log In</button>
+                  <input type="submit" value="login" class="btn btn-primary btn-block mt-4" name="login">
                 </form>
               </div>
               <div class="card-footer">
-                <p class="text-muted text-center">Don't have an account? <a href="./signup.html">Sign up</a></p>
+                <p class="text-center">Don't have an account? <a href="./signup.html">Sign up</a></p>
               </div>
             </div>
           </div>

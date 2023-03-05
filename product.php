@@ -32,7 +32,7 @@ if(isset($_GET['id'])){
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./assets/css/style.css">
 <title><?php echo $name;?></title>
 </head>
 <body>
@@ -59,7 +59,7 @@ if(isset($_GET['id'])){
                                 </div>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="#"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> sign up</a>
+                                <a class="nav-link" href="./login.php"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> sign up</a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i>cart</a>

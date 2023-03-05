@@ -18,16 +18,17 @@ include "./include/datetime.php";
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./assets/css/style.css">
 <!--owl carousel css-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <title>ecommerce &copy;</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="sm-col-2 md-col-2 lg-col-2">
+            <div class="col-sm-2 col-md-2 col-lg-2">
+              
                 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                     <a class="navbar-brand" style="color:blue; font-size:30px;">Royal Technologies</a>
                     <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +49,7 @@ include "./include/datetime.php";
                                 </div>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="#"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> sign up</a>
+                                <a class="nav-link" href="./login.php"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> sign up</a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i>cart</a>
@@ -57,11 +58,20 @@ include "./include/datetime.php";
                     </div>
                 </nav>
             </div>
+            
+              
+              
+              
+            </div>
            
-            <div class="sm-col-10  container-fluid" style="padding-top: 70px;">
+            <div class=" container-fluid col-10" style="padding-top: 70px;">
+            <span>
+                <?php echo Message();
+                 echo SuccessMessage();
+               ?></span>
                 <!--banner-->
                 
-                <div class="owl-carousel owl-carousel-1" style="color: aliceblue;">
+                <div class="owl-carousel owl-carousel-1 " style="color: aliceblue;">
                     <div class="item">
                         <div class="jumbotron jumbotron-fluid" style="background-image: url('./assets/images/banners/banner1.jpg');">
                             <div class="container">
@@ -133,7 +143,7 @@ include "./include/datetime.php";
                   
                   
                   
-                  <div class="owl-carousel owl-carousel-2">
+                  <div class="owl-carousel owl-carousel-2 boxsize">
                     
                         <?php 
                             $viewQuery= "SELECT * FROM products WHERE category='laptops'" ;

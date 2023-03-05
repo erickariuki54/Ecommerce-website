@@ -2,7 +2,10 @@ $(document).ready(function(){
     $(".owl-carousel-1").owlCarousel({
         loop:true,
         margin:10,
-        nav:true,
+        nav:false,
+        autoplay: true,
+        autoplayTimeout: 1000,
+        //dots:true,
         responsive:{
           0:{
             items:1
