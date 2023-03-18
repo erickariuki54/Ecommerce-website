@@ -91,4 +91,75 @@ elseif(isset($_POST['signup'])){
         redirect_to('./login.php');
     }
 }
-?>
+// Check if product ID is set
+elseif (isset($_POST['product_id'])) {
+    
+  
+  
+  // Add product to cart
+  $product_id = $_POST['product_id'];
+  $product_name = $_POST['product_name'];
+  $username = $_POST['username'];
+  $category = $_POST['category'];
+  $query= "INSERT INTO `cart` (`productName`, `productId`, `username`, `category`) VALUES ('${product_name}', '${product_id}', '${username}', '${category}')";
+  $execute = mysqli_query($conn, $query);
+  
+
+  
+  $item = array(
+    'product_id' => $product_id,
+    'product_name' => $product_name,
+    'username' => $username,
+    'category' => $category
+  );
+  
+  if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = array();
+  }
+  
+  $_SESSION['cart'][] = $item;
+  
+  echo "Product added to cart successfully. $product_name, $username, $category, $product_id";
+}elseif(isset($_POST["cartItemId"])){/*to add the quantity value to the database*/
+    $cartItemId = $_POST['cartItemId'];
+    $quantity = $_POST['quantity'];
+
+    // Update the quantity value in the database
+    $query = "UPDATE cart SET quantity = $quantity WHERE id = $cartItemId";
+    $result = mysqli_query($conn, $query);
+
+    // If the update was successful, calculate the new total price and return it to the client
+    if ($result) {
+      $query = "SELECT SUM(price * quantity) AS total FROM cart WHERE username = '$username'";
+      $result = mysqli_query($conn, $query);
+      $row = mysqli_fetch_assoc($result);
+      $total = $row['total'];
+      echo $total;
+    } else {
+      // If the update failed, return an error message
+      echo "Error updating quantity";
+    }
+
+    }
+elseif(isset($_POST['cartItemId1'])){
+    $cartItemId = $_POST['cartItemId1'];
+
+    // Delete the item from the database
+    $query = "DELETE FROM cart WHERE id = $cartItemId";
+    $result = mysqli_query($conn, $query);
+
+    // If the delete was successful, calculate the new total price and return it to the client
+    if ($result) {
+      $query = "SELECT SUM(price * quantity) AS total FROM cart WHERE username = '$username'";
+      $result = mysqli_query($conn, $query);
+      $row = mysqli_fetch_assoc($result);
+      $total = $row['total'];
+      echo $total;
+    } else {
+      // If the delete failed, return an error message
+      echo "Error deleting item";
+    }
+    
+}
+ 
+  ?>

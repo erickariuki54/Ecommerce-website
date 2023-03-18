@@ -5,6 +5,9 @@ $(document).ready(function(){
         nav:false,
         autoplay: true,
         autoplayTimeout: 1000,
+        autoplayHoverPause:true,
+
+
         //dots:true,
         responsive:{
           0:{
@@ -37,3 +40,4 @@ $(document).ready(function(){
     });
   });
   
+ 
