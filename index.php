@@ -25,7 +25,7 @@ $userData = login();
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="./assets/css/style.css?3">
+<link rel="stylesheet" href="./assets/css/style.css">
 <!--owl carousel css-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
@@ -40,59 +40,20 @@ $userData = login();
 <title>ecommerce &copy;</title>
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-2 collapse"id="side" >
-        <div class="navbar navbar-dark position-fixed bg-dark"  >
-            <ul class="navbar-nav" style="height: 500px;">
-                <li class="nav-item">categories</li>
-                <li class="nav-item"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> Phones</a></li>
-                <li class="nav-item"><a href="#"> <i class="fa fa-laptop" aria-hidden="true"></i> laptops</a></li>
-                <li class="nav-item"><a href="#"><i class="fas fa-toolbox    "></i> accessories</a></li>
-            </ul>
-        </div>
-      </div>
-      <div class="col-sm-10 "> 
-        <div class="nav">
-              
-              <nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed" style="width: 100%;">
-                  <button data-toggle="collapse" data-target="#side"><i class="fas fa-dice-three    "></i>
-
-                  </button>
-                  <a class="navbar-brand" style="color:blue; font-size:30px;">Royal Technologies</a>
-                  <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div id="my-nav" class="collapse navbar-collapse">
-                      <ul class="navbar-nav mr-auto">
-                          <li class="nav-item active">
-                              <a class="nav-link" href="./index.php"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
-                          </li>
-                          <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: black;"><i class="fa fa-book" aria-hidden="true"></i> categories</a>
-                              <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="./index.php?#phones"><i class="fa fa-phone" aria-hidden="true"></i> Phones</a>
-                                  <a class="dropdown-item" href="./index.php?#laptops"><i class="fa fa-laptop" aria-hidden="true"></i> laptops</a>
-                                  <div class="dropdown-divider"></div>
-                                  <a class="dropdown-item" href="#tab4Id"> accessories</a>
-                              </div>
-                          </li>
-                          <li class="nav-item active">
-                              <a class="nav-link" href="./login.php"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> sign up</a>
-                          </li>
-                          <li class="nav-item active">
-                              <a class="nav-link" href="./cart.php"><i class="fa fa-cart-plus" aria-hidden="true"></i>cart <div class="badge badge-warning">1</div></a>
-                          </li>
-                      </ul>
-                  </div>
-              </nav>
-          </div>
+<div>
+  <!-- Navigation-->
+  <?php 
+  require "./include/navigation.php";
+  ?>
+</div>   
            
-            <div class=" container-fluid col-sm-10" style="padding-top: 70px;">
+            <div class=" container-fluid col-sm-10 "style="padding-top: 70px;">
+            <div class="col-sm-2"><!--placeholder for col-sm-2--></div>
             <span>
                 <?php echo Message();
                  echo SuccessMessage();
                ?></span>
+               
                 <!--banner-->
                 
                 
@@ -237,6 +198,7 @@ function addToCart(product_id,product_name,username,category) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 <!--owl carousel js-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./style.js?1"></script>
+<script src="./style.js"></script>
+<script src="./assets/js/cart.js"></script>
 </body>
 </html>

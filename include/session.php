@@ -33,3 +33,20 @@
          $usertype = $_SESSION['usertype'] ;
         return $username.",".$usertype.",".$user_id;
     }}
+
+    function loginchecker(){
+        $user_id = null;
+        $username = null;
+        $usertype = null;
+
+        // Save the user data in the session
+         $user_id = $_SESSION['user_id'] ;
+         $username = $_SESSION['username'] ;
+         $usertype = $_SESSION['usertype'] ;
+        if($username == null){
+            
+            echo '<i class="fa fa-sign-in-alt" aria-hidden="true"></i> sign up';
+        }else{
+            echo '<i class="fa fa-user" aria-hidden="true"></i> sign out,'.$username;
+        }
+    }

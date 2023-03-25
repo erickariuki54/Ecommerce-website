@@ -177,3 +177,31 @@ $(document).ready(function() {
     });
   });
 });
+/*number of items in the cart*/
+// Update the cart badge count on page load
+$(document).ready(function() {
+    updateCartBadge();
+  });
+  
+  // Listen for changes to the cart
+  $('body').on('change', '.cart-item-quantity', function() {
+    updateCartBadge();
+  });
+  
+  function updateCartBadge() {
+    // Send an AJAX request to fetch the updated badge count from the server
+    $.ajax({
+      url: 'number_cart.php',
+      type: 'GET',
+      dataType: 'json',
+      
+      success: function(response) {
+        // Update the cart badge value with the updated count
+        $('.cart-badge').text(response.count);
+      },
+      error: function(xhr, status, error) {
+        console.log('Error fetching badge count:', error);
+      }
+    });
+  }
+  

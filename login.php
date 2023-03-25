@@ -46,7 +46,7 @@ global $DateTime;
                 </form>
               </div>
               <div class="card-footer">
-                <p class="text-center">Don't have an account? <a href="./signup.html">Sign up</a></p>
+                <p class="text-center">Don't have an account? <a href="./signup.php">Sign up</a></p>
               </div>
             </div>
           </div>

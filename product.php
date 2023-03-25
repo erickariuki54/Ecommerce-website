@@ -36,40 +36,11 @@ if(isset($_GET['id'])){
 <title><?php echo $name;?></title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="sm-col-2 md-col-2 lg-col-2">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-                    <a class="navbar-brand" style="color:blue; font-size:30px;">Royal Technologies</a>
-                    <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div id="my-nav" class="collapse navbar-collapse">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: black;"><i class="fa fa-book" aria-hidden="true"></i> categories</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#phones"><i class="fa fa-phone" aria-hidden="true"></i> Phones</a>
-                                    <a class="dropdown-item" href="#laptops"><i class="fa fa-laptop" aria-hidden="true"></i> laptops</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#tab4Id"> accessories</a>
-                                </div>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="./login.php"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> sign up</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i>cart</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+    <div class="container-fluid">
+        <?php require "./include/navigation.php";?>
+    </div>
            
-            <div class="sm-col-10  container-fluid" style="padding-top: 70px;">
+            <div class="col-sm-10  container-fluid " style="padding-top: 70px; margin-right:40px;">
                 <h1><?php echo $name;?></h1>
 
                 <?php

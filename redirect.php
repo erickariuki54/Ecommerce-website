@@ -101,6 +101,9 @@ elseif (isset($_POST['product_id'])) {
   $product_name = $_POST['product_name'];
   $username = $_POST['username'];
   $category = $_POST['category'];
+  if($username == null){
+    echo "you must sign in first to add items to cart";
+  }else{
   $query= "INSERT INTO `cart` (`productName`, `productId`, `username`, `category`) VALUES ('${product_name}', '${product_id}', '${username}', '${category}')";
   $execute = mysqli_query($conn, $query);
   
@@ -120,6 +123,7 @@ elseif (isset($_POST['product_id'])) {
   $_SESSION['cart'][] = $item;
   
   echo "Product added to cart successfully. $product_name, $username, $category, $product_id";
+}
 }elseif(isset($_POST["cartItemId"])){/*to add the quantity value to the database*/
     $cartItemId = $_POST['cartItemId'];
     $quantity = $_POST['quantity'];
@@ -160,6 +164,29 @@ elseif(isset($_POST['cartItemId1'])){
       echo "Error deleting item";
     }
     
+}
+elseif(isset($GET['badgenumber'])){/*badge number */
+    $query = "SELECT COUNT(*) FROM table_name WHERE username='user'";
+    $execute = mysqli_query($conn, $query);
+
+    header('Content-Type: application/json');
+    echo json_encode($execute);
+}
+elseif(isset($_POST['query'])){
+  $search = $_POST['query'];
+  $sql = "SELECT * FROM products WHERE name LIKE '%".$search."%'";
+  $result = mysqli_query($conn, $sql);
+  $output = '<ul class="list-unstyled">';
+  if(mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_array($result)) {
+      $id = $row['id'];
+      $output .= "<li><a href='product.php?id=${id}'>".$row['name']."</a></li>";
+    }
+  } else {
+    $output .= '<li>No results found</li>';
+  }
+  $output .= '</ul>';
+  echo $output;
 }
  
   ?>
