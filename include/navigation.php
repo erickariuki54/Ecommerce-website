@@ -42,7 +42,7 @@ include_once "./include/session.php";
                               <a class="nav-link" href="./cart.php">
                                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                 cart
-                                <div class="badge badge-warning cart-badge">1</div>
+                                <div class="badge badge-warning cart-badge">0</div>
                               </a>
                             </li>
                             
@@ -73,7 +73,8 @@ include_once "./include/session.php";
             </div>
 
 <!--add funtionality to the search button-->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./assets/frameworks/node_modules/jquery/dist/jquery.min.js"></script>
+
 <script>
   $(document).ready(function() {
   $('#search').keyup(function() {

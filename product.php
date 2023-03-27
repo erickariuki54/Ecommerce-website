@@ -3,6 +3,7 @@ include "./include/datetime.php";
 include './include/db.php';
 include './include/functions.php';
 include './include/session.php';
+include './include/css_js.php';/*css and js files for bootstrap and jquery*/
 
 global $conn;
 if(isset($_GET['id'])){
@@ -30,8 +31,8 @@ if(isset($_GET['id'])){
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<?php framework_css();?>
 <link rel="stylesheet" href="./assets/css/style.css">
 <title><?php echo $name;?></title>
 </head>
@@ -58,8 +59,8 @@ if(isset($_GET['id'])){
                 <p><?php echo $details;?></p>
                 <button class="btn btn-primary "> ksh <?php echo $price;?>  <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
             </div></div></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+<?php framework_js();?>
+<script src="./assets/js/cart.js?3"></script>
 </body>
 </html>

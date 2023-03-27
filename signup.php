@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="./assets/css/style.css">
-<script src="./passwordvalidation.js"></script>
+<script src="./assets/frameworks/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./assets/js/passwordvalidation.js"></script>
 <title>sign up</title>
 </head>
 <body class="background">
@@ -18,19 +19,19 @@
                 <div class="signup">
                     <form action="./redirect.php" method="post">
                         <label for="username" style="margin-top: 20px;"><i class="fa fa-user" aria-hidden="true"></i>username</label>
-                        <input type="text" name="username" id="username" class="form-control">
+                        <input type="text" name="username" id="username" class="form-control" required>
                         <label for="email"><i class="fa fa-users" aria-hidden="true"></i> Email</label>
-                        <input type="email" name="email" id="email" class="form-control">
+                        <input type="email" name="email" id="email" class="form-control"required>
                         <label for="firstname"><i class="fa fa-user-plus" aria-hidden="true"></i> First Name</label>
-                        <input type="text" name="firstname" id="firstname" class="form-control">
+                        <input type="text" name="firstname" id="firstname" class="form-control" required>
                         <label for="lastname"><i class="fa fa-user-plus" aria-hidden="true"></i> Last Name</label>
-                        <input type="text" name="lastname" id="lastname" class="form-control">
+                        <input type="text" name="lastname" id="lastname" class="form-control" required>
                         <label for="password"><i class="fa fa-lock" aria-hidden="true"></i> password</label>
-                        <input type="password" name="password" id="password" class="form-control">
-                        <label for="confpassword"><i class="fas fa-user-lock"></i> Confirm Password</label>
-                        <input type="password" name="confpassword" id="confpassword" class="form-control">
-                        <span class="validation"></span>
-                        <input type="submit" value="signup" class="btn btn-primary btn-block mt-4" name="signup">
+                        <input type="password" name="password" id="password" class="form-control" required>
+                        <label for="password-confirm"><i class="fas fa-user-lock"></i> Confirm Password</label>
+                        <input type="password" name="password-confirm" id="password-confirm" class="form-control" required>
+                        <span id="password-help"></span>
+                        <input type="submit" value="signup" class="btn btn-primary btn-block mt-4" name="signup" id="signup">
                         <div class="card-footer">
                             <p class="text-center">have an account ?<a href="./login.php">login</a></p>
                           </div>

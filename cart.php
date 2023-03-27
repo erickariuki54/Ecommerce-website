@@ -3,6 +3,7 @@ include "./include/db.php";
 include "./include/session.php";
 include "./include/functions.php";
 include "./include/datetime.php";
+include './include/css_js.php';/*css and js files for bootstrap and jquery*/
 
 //username and id
 $userData = login();
@@ -25,11 +26,9 @@ $userData = login();
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<?php framework_css()?><!-- css files -->
 <link rel="stylesheet" href="./assets/css/style.css">
-<!--owl carousel css-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <style>
     
 /*bring the text forward*/
@@ -138,10 +137,7 @@ if($username == !null){
     </div>
   
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<?php framework_js()?><!--frameworks javascript files-->
 
 <script src="./assets/js/cart.js">
 </script>
