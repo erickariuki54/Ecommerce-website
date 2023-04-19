@@ -125,7 +125,7 @@ $('button.delete-item').on('click', function() {
 $(document).ready(function() {
 updateCartSummary();
 
-$('.table').on('change', 'input[type="number"]', function() {
+$('.table1').on('change', 'input[type="number"]', function() {
   updateCartSummary();
 });
 });
