@@ -35,7 +35,7 @@ $(document).ready(function() {
   $(document).ready(function() {
   updateCartSummary();
   
-  $('.table').on('change', 'input[type="number"]', function() {
+  $('.table1').on('change', 'input[type="number"]', function() {
     updateCartSummary();
   });
 });
@@ -44,7 +44,7 @@ function updateCartSummary() {
   var totalQuantity = 0;
   var totalAmount = 0;
 
-  $('.table tbody tr').each(function() {
+  $('.table1 tbody tr').each(function() {
     var quantity = parseInt($(this).find('input[type="number"]').val());
     var price = parseFloat($(this).find('td:nth-child(4)').text().replace('KSHS.', ''));
     var total = quantity * price;
@@ -116,6 +116,7 @@ $('button.delete-item').on('click', function() {
   });
   // Remove the row from the table
   $(this).closest('tr').remove();
+  updateCartBadge();
   
   
 });
@@ -133,7 +134,7 @@ function updateCartSummary() {
 var totalQuantity = 0;
 var totalAmount = 0;
 
-$('.table tbody tr').each(function() {
+$('.table1 tbody tr').each(function() {
   var quantity = parseInt($(this).find('input[type="number"]').val());
   var price = parseFloat($(this).find('td:nth-child(4)').text().replace('KSHS.', ''));
   var total = quantity * price;

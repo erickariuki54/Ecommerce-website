@@ -30,25 +30,14 @@ $query = "SELECT * FROM users WHERE username='$username'";
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="./assets/css/style.css">
 <style>
     
     /*bring the text forward*/
     .navbar {
       z-index: 999;
     }
-    .cartitems{
-      display: flex;
-    }
-    .cartitems input[type=text]{
-      width: 25%;
-      height: 30px;
-    }
-    .cartitems label{
-      width: 8%;
-      height: 30px;
-      background-color: whitesmoke;
-    }
+    
     
     </style>
     
@@ -66,20 +55,24 @@ $query = "SELECT * FROM users WHERE username='$username'";
           <div class="col-sm-2"><!--empty two columns--></div>
           <div class="col-sm-9 ">
             <h1 style="text-align: center;">checkout items </h1>
-            <div class="form bg-light">
-                <form action="./mailing_checkout.php" method="post">
-                  <div class="cartitems"><!--title for cart items-->
-                    <label class="form-control" >s/no</label>
-                    <input type="text" value="NAME" disabled>
-                    <input type="text" value="PRICE" disabled>
-                    <input type="text" value="QUANTITY" disabled>
-                    <input type="text" value="TOTAL PRICE" disabled>
-                  </div>
+            <div class="bg-light">
+                
+                  <div class="cartitems">
+                    <table class="table">
+                      <tr>
+                        <th>S/NO</th>
+                        <th>NAME</th>
+                        <th>PRICE</th>
+                        <th>QUANTITY</th>
+                        <th>TOTAL PRICE</th>
+                      </tr>
+                    
                   
                   <?php 
                   $query = "SELECT * FROM cart WHERE username='$username'";
                   $execute = mysqli_query($conn, $query);
                   $count = 0;
+                  $grandtotal = 0;
                   while($datarows=mysqli_fetch_array($execute)){
                     $id= $datarows["id"];
                     $quantity = $datarows["quantity"];
@@ -98,26 +91,31 @@ $query = "SELECT * FROM users WHERE username='$username'";
                     $productName = $datarows["productName"];
                     $category = $datarows["category"];
                     $count++;
-                  ?>
-                  <div class="cartitems">
-                    <label for="item" class="form-control"><?php echo $count; ?></label>
-                    <input type="text"   name="item" id="item"  disabled value="<?php echo $productName; ?>">
-                    <input type="text" name="singleprice" id="single" value="<?php echo $price; ?>" disabled>
-                    <input type="text" name="quantity" id="quantity" value="<?php echo $quantity; ?>" disabled>
-                    <input type="text" style="color: red;" name="price" id="price" disabled value="<?php echo $total_price; ?>">
-                    </div>
-                    <?php }?>
-                    <label for="email" >Email:</label>
-                    <input type="text" name="email" id="email" class="form-control" value="<?php echo $email; ?>">
-                    <div class="total my-2" style="text-align: center;">
-                    <label for="total"> grandTotal</label>
-                    <input type="text" style="color: green;" name="total" id="total" disabled value="<?php echo $grandtotal; ?>">
-                    </div>
-                    <input type="submit" value="checkout" class="btn-warning my-4 form-control" name="checkout">
 
                     
+                  ?>
+                  <div class="cartitems">
+                    <tr>
+                      <td><?php echo $count; ?></td>
+                      <td><?php echo $productName; ?></td>
+                      <td><?php echo $price; ?></td>
+                      <td><?php echo $quantity; ?></td>
+                      <td><?php echo $total_price;?></td>
+                    </tr>
+                    
+                    </div>
+                    <?php }?>
+                    <tr>
+                      <th colspan="4">GRAND TOTAL</th>
+                      <th style="color: green;"><?php echo $grandtotal; ?></th>
 
-                </form>
+                    </tr>
+                    </table>
+                    <form action="./mailing_checkout.php" method="post">
+                      <label for="email" >Email:</label>
+                      <input type="text" name="email" id="email" class="form-control" value="<?php echo $email; ?>">
+                      <input type="submit" value="checkout" class="btn-warning my-4 form-control" name="checkout">
+                    </form>
             </div>
           </div>
         </div>
@@ -131,6 +129,6 @@ $query = "SELECT * FROM users WHERE username='$username'";
 <!--add to jquery work with ajax-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script src="./assets/js/cart.js"></script>
+<script src="./assets/js/cart.js?1"></script>
 </body>
 </html>

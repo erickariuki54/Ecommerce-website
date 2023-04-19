@@ -16,7 +16,7 @@ global $conn;
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="Description" content="Enter your description here"/>
 <?php framework_css()?>
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="./assets/css/style.css">
 
 <title>admin</title>
 <style>
@@ -29,15 +29,15 @@ global $conn;
     
     <div class="row">
       <div class="col-sm-2 position-fixed "style="width: 100%;height: 100%;">
-        <div class="navbar bg-dark ">
-          <ul class="navbar-nav  ">
+        <div class="navbar bg-dark" id="sidebar">
+          <ul class="navbar-nav" style="z-index: 999;">
             <li class="nav-item "> <a class="nav-link" href="#"><i class="fa fa-users" aria-hidden="true"></i>users</a></li>
             <li class="nav-item "> <a class="nav-link" href="#"><i class="fa fa-users" aria-hidden="true"></i>add users</a></li>
             <li class="nav-item "> <a class="nav-link" href="#"><i class="fa fa-users" aria-hidden="true"></i>remove users</a></li>
             
-            <li class="nav-item"> <a class="nav-link" href="#">products</a></li>
-            <li class="nav-item"> <a class="nav-link" href="#">add products</a></li>
-            <li class="nav-item"> <a class="nav-link" href="#">remove products</a></li>
+            <li class="nav-item"> <a class="nav-link" href="./dashboard.php?#products">products</a></li>
+            <li class="nav-item"> <a class="nav-link" href="./addproducts.php">add products</a></li>
+            <li class="nav-item"> <a class="nav-link" href="./dashboard.php?#removeproducts">remove products</a></li>
             <li class="nav-item"> <a class="nav-link" href="#">previous purchases</a></li>
             <li class="nav-item"> <a class="nav-link" href="#">failed purchases</a></li>
             
@@ -120,7 +120,7 @@ global $conn;
           <?php }?>
         </table>
         </div>
-        <div class="products">
+        <div class="products" id="products">
           <h4>products</h4>
           <p id="products" class="bg-warning position-sticky" style="position: sticky;top: 0px;"> products</p>
           <div class="table ">
@@ -133,7 +133,7 @@ global $conn;
               <th>description</th>
               <th>image</th>
               <th>time modified</th>
-              <th>delete</th>
+              <th id="removeproducts">delete</th>
             </tr>
             <?php 
             $query = "SELECT * FROM products";

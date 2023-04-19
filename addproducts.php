@@ -134,15 +134,7 @@ if(isset($_POST['submit'])){
                     <input type="submit" value="submit" name="submit" class="btn btn-primary form-control">
                 </div>
             </form>
-                <h1>test</h1>
-                <p>
-                    <?php echo $name;
-                    echo $_FILES['image'];
-                    
-
-                    ?>
-                    
-                </p>
+                
 
             </div>
                     

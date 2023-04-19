@@ -1,4 +1,7 @@
-<?php 
+<?php
+// Start output buffering
+ob_start();
+
 include "./include/db.php";
 include "./include/session.php";
 include "./include/functions.php";
@@ -16,6 +19,8 @@ $userData = login();
 
   if($usertype == 1){
     redirect_to('./dashboard.php');
+  }elseif($usertype == null){
+    redirect_to('./login.php');
   }
 
 
@@ -203,3 +208,8 @@ function addToCart(product_id,product_name,username,category) {
 <script src="./assets/js/cart.js"></script>
 </body>
 </html>
+
+<?php
+// Flush the output buffer and send output to the browser
+ob_end_flush();
+?>

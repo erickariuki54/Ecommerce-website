@@ -74,6 +74,7 @@ include_once "./include/session.php";
 
 <!--add funtionality to the search button-->
 <script src="./assets/frameworks/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../assets/js/cart.js"></script>
 
 <script>
   $(document).ready(function() {

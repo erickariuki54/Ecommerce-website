@@ -57,7 +57,7 @@ if($username == !null){
     <div class="row">
       
       <div class="col-sm-8">
-        <table class="table table-striped table-fluid"><!--cart table start-->
+        <table class="table table1 table-striped table-fluid"><!--cart table start-->
           <thead>
             <tr>
               <th scope="col">S/No <?php echo $username;?></th>
@@ -139,7 +139,7 @@ if($username == !null){
 
 <?php framework_js()?><!--frameworks javascript files-->
 
-<script src="./assets/js/cart.js">
+<script src="./assets/js/cart.js?1">
 </script>
 
 </body>

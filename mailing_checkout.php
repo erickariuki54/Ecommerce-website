@@ -38,7 +38,7 @@ if(isset($_POST['checkout'])&& $username == !null){
     //to send the cart items inside a table
     $message = "<table border=1 style='border-collapse: collapse; width:100%;'>";
     $message .= "<tr><th>Product</th><th>Quantity</th><th>Category</th><th>Price</th><th>Total</th></tr>";
-
+    $grandtotal =0;
     while($datarows1=mysqli_fetch_array($execute1)){
         $productname = $datarows1['productName'];
         $quantity = $datarows1['quantity'];
