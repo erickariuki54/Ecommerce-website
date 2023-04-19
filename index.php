@@ -196,7 +196,24 @@ function addToCart(product_id,product_name,username,category) {
     data: {product_id: product_id, product_name: product_name, username: username, category: category},
 
     success: function(response) {
-      alert(response);
+      //alert(response);
+    }
+  });
+  updateCartBadge();
+}
+function updateCartBadge() {
+  // Send an AJAX request to fetch the updated badge count from the server
+  $.ajax({
+    url: 'number_cart.php',
+    type: 'GET',
+    data:{cartupdate:1},
+    
+    success: function(response) {
+      // Update the cart badge value with the updated count
+      $('.cart-badge').text(response);
+    },
+    error: function(xhr, status, error) {
+      console.log('Error fetching badge count:', error);
     }
   });
 }
@@ -205,7 +222,7 @@ function addToCart(product_id,product_name,username,category) {
 
 
 <script src="./style.js"></script>
-<script src="./assets/js/cart.js"></script>
+<script src="./assets/js/cart.js?1"></script>
 </body>
 </html>
 

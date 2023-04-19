@@ -139,7 +139,7 @@ if($username == !null){
 
 <?php framework_js()?><!--frameworks javascript files-->
 
-<script src="./assets/js/cart.js?1">
+<script src="./assets/js/cart.js?2">
 </script>
 
 </body>
