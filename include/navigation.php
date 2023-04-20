@@ -1,5 +1,5 @@
 <?php 
-include_once "./include/session.php";
+include_once "session.php";
 ?>
 <style>
     

@@ -1,13 +1,18 @@
 <?php
-include "./include/datetime.php";
-include  "./include/db.php";
-include "./include/functions.php";
-include "./include/session.php";
+ob_start();
+
+include "include/datetime.php";
+include "include/db.php";
+include "include/functions.php";
+include "include/session.php";
 global $conn;
 global $DateTime;
+
+
 if(isset($_POST['login'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+  //sanitizing the code to prevent sql injection
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
     
     //echo "password ${passwordverify}";
     //echo 
@@ -54,7 +59,7 @@ if(isset($_POST['login'])){
 
     } else {
         // Password is incorrect
-        echo "Your password is incorrect";
+        //echo "Your password is incorrect";
         $_SESSION["ErrorMessage"]="wrong password";
         redirect_to("./login.php");
 
@@ -65,32 +70,42 @@ if(isset($_POST['login'])){
     
 
 }
-elseif(isset($_POST['signup'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'] ;
-    
-    $passwordhash = password_hash($password, PASSWORD_DEFAULT);
-    echo $passwordhash."<br>";
-    echo "user exists";
-    $email = $_POST['email'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $query = "INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `email`, `password`, `user`, `datetime`) VALUES (NULL, '${firstname}', '${lastname}', '${username}', '${email}', '${passwordhash}', '0', '${DateTime}')";
-    $execute = mysqli_query($conn,$query);
+if(isset($_POST['signup'])){
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $email = $_POST['email'];
+  $firstname = $_POST['firstname'];
+  $lastname = $_POST['lastname'];
+  
+  // Prepare a statement with parameterized query
+  $stmt = $conn->prepare("SELECT * FROM users WHERE username=?");
+  $stmt->bind_param("s", $username);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  
+  if($result->num_rows > 0) {
+      // Username already exists
+      $_SESSION["ErrorMessage"] = "Account creation failed. A similar account already exists.";
+      redirect_to('./login.php');
+  } else {
+      // Hash the password
+      $passwordhash = password_hash($password, PASSWORD_DEFAULT);
 
-    
-    if(empty($execute)){
-        echo "creation failed";
-        $_SESSION["ErrorMessage"]="account creation failed";
-        redirect_to('./login.php');
-        
-        
-    }else{
-        echo "creation successful";
-        $_SESSION["SuccessMessage"]="account created successfully, login with your username and password";
-        redirect_to('./login.php');
-    }
+      // Prepare a statement with parameterized query
+      $stmt = $conn->prepare("INSERT INTO `users` (`firstname`, `lastname`, `username`, `email`, `password`, `user`, `datetime`) VALUES (?, ?, ?, ?, ?, '0', ?)");
+      $stmt->bind_param("ssssss", $firstname, $lastname, $username, $email, $passwordhash, $DateTime);
+      $stmt->execute();
+      
+      if($stmt->affected_rows > 0){
+          $_SESSION["SuccessMessage"] = "Account created successfully. Login with your username and password.";
+          redirect_to('./login.php');
+      } else {
+          $_SESSION["ErrorMessage"] = "Account creation failed. Please try again later.";
+          redirect_to('./login.php');
+      }
+  }
 }
+
 // Check if product ID is set
 elseif (isset($_POST['product_id'])) {
     
@@ -189,4 +204,5 @@ elseif(isset($_POST['query'])){
   echo $output;
 }
  
-  ?>
+ob_end_flush();
+?>

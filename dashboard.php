@@ -26,6 +26,10 @@ global $conn;
 <body>
   <div class="container-fluid">
   <h1 class="text-center">administrator</h1>
+  <span>
+    <?php echo SuccessMessage();
+    echo Message();?>
+  </span>
     
     <div class="row">
       <div class="col-sm-2 position-fixed "style="width: 100%;height: 100%;">

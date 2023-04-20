@@ -1,4 +1,3 @@
-
 <?php //the css for modules instead of manually editing on each site
  function framework_css(){?>
 <link rel="stylesheet" href="./assets/frameworks/node_modules/bootstrap/dist/css/bootstrap.min.css">

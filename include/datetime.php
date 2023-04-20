@@ -1,6 +1,5 @@
 <?php
 date_default_timezone_set("Africa/Nairobi");
-$CurrentTime = time();
-$DateTime = strftime("%Y-%m-%d %H:%M:%S ",$CurrentTime);
-
+$CurrentTime = new DateTime();
+$DateTime = $CurrentTime->format('Y-m-d H:i:s');
 ?>

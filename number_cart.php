@@ -1,8 +1,8 @@
 <?php
-include "./include/db.php";
-include "./include/session.php";
-include "./include/functions.php";
-include "./include/datetime.php";
+include "include/db.php";
+include "include/session.php";
+include "include/functions.php";
+include "include/datetime.php";
 
 // Get the logged in user's username and id
 $userData = login();
@@ -19,5 +19,7 @@ if(isset($_GET['cartupdate'])){
     $count++;
   }
   echo $count;
+}else{
+  echo 0;
 }
 ?>

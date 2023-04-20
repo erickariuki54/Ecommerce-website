@@ -1,9 +1,11 @@
 <?php
-include "./include/datetime.php";
-include  "./include/db.php";
-include "./include/functions.php";
-include "./include/session.php";
-include "./include/css_js.php";
+include "include/datetime.php";
+include "include/db.php";
+include "include/functions.php";
+include "include/session.php";
+//clear previous sessions
+clearsession();
+include "include/css_js.php";
 global $conn;
 global $DateTime;
 ?>

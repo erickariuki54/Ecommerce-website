@@ -94,9 +94,11 @@ if(isset($_POST['checkout'])&& $username == !null){
         // Send email
         $mail->send();
         echo 'Email sent successfully!';
+        header("Refresh: 1; url=./index.php");
     } catch (Exception $e) {
         /*echo 'Error sending email: ' . $mail->ErrorInfo;*/
         echo "please check your email and try again";
+        header("Refresh: 1; url=./checkout.php");
     }
 }
 ?>

@@ -1,18 +1,20 @@
 <?php 
-include "./include/db.php";
-include "./include/session.php";
-include "./include/functions.php";
-include "./include/datetime.php";
-include './include/css_js.php';/*css and js files for bootstrap and jquery*/
+require_once "include/db.php";
+require_once "include/session.php";
+require_once "include/functions.php";
+require_once "include/datetime.php";
+require_once 'include/css_js.php';/*css and js files for bootstrap and jquery*/
 
 //username and id
 $userData = login();
-  // Split the user data string into an array
-  $userDataArray = explode(',', $userData);
-  // Get the individual values from the array
-  $username = $userDataArray[0];
-  $usertype = $userDataArray[1];
-  $user_id = $userDataArray[2];
+// Split the user data string into an array
+$userDataArray = explode(',', $userData ?? '');
+// Get the individual values from the array
+$username = $userDataArray[0] ?? '';
+$usertype = $userDataArray[1] ?? '';
+$user_id = $userDataArray[2] ?? '';
+
+
 
   
 
@@ -44,7 +46,7 @@ $userData = login();
 <div>
   <!-- Navigation-->
   <?php 
-  require "./include/navigation.php";
+  require "include/navigation.php";
   ?>
 </div>  
 <!--if the username is not empty to view the page-->

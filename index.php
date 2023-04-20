@@ -1,27 +1,35 @@
 <?php
-// Start output buffering
-ob_start();
+ob_start(); // start output buffering
 
-include "./include/db.php";
-include "./include/session.php";
-include "./include/functions.php";
-include "./include/datetime.php";
-include './include/css_js.php';
+/*ini_set('display_errors', 1);
+error_reporting(E_ALL);*/
+
+require_once "include/db.php";
+require_once "include/session.php";
+require_once "include/functions.php";
+require_once "include/datetime.php";
+require_once 'include/css_js.php';
 
 //username and id
 $userData = login();
-  // Split the user data string into an array
-  $userDataArray = explode(',', $userData);
-  // Get the individual values from the array
-  $username = $userDataArray[0];
-  $usertype = $userDataArray[1];
-  $user_id = $userDataArray[2];
+// Split the user data string into an array
+$userDataArray = explode(',', $userData ?? '');
+// Get the individual values from the array
+$username = $userDataArray[0] ?? '';
+$usertype = $userDataArray[1] ?? '';
+$user_id = $userDataArray[2] ?? '';
 
-  if($usertype == 1){
-    redirect_to('./dashboard.php');
-  }elseif($usertype == null){
-    redirect_to('./login.php');
-  }
+//var_dump($userData);
+//var_dump($usertype);
+
+if($usertype == 1){
+  redirect_to('./dashboard.php');
+}elseif($usertype == null){
+  header("Refresh: 1; url=./login.php");
+
+  //redirect_to('./login.php');
+}
+
 
 
 ?>
@@ -52,7 +60,7 @@ $userData = login();
 <div>
   <!-- Navigation-->
   <?php 
-  require "./include/navigation.php";
+  require "include/navigation.php";
   ?>
 </div>   
            
@@ -189,6 +197,9 @@ $userData = login();
 <!--js for bootstrap and jquery-->
 <?php framework_js()?>
 <script>
+  $(document).ready(function() {
+  updateCartBadge();
+});
 function addToCart(product_id,product_name,username,category) {
   $.ajax({
     type: "POST",
@@ -221,12 +232,8 @@ function updateCartBadge() {
 
 
 
-<script src="./style.js"></script>
-<script src="./assets/js/cart.js?1"></script>
+<script src="./assets/js/style.js"></script>
+<script src="./assets/js/cart.js"></script>
 </body>
 </html>
-
-<?php
-// Flush the output buffer and send output to the browser
-ob_end_flush();
-?>
+<?php ob_end_flush();?>

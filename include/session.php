@@ -38,15 +38,27 @@
         $user_id = null;
         $username = null;
         $usertype = null;
-
-        // Save the user data in the session
-         $user_id = $_SESSION['user_id'] ;
-         $username = $_SESSION['username'] ;
-         $usertype = $_SESSION['usertype'] ;
+    
+        if(isset($_SESSION['user_id'])) {
+            $user_id = $_SESSION['user_id'];
+        }
+    
+        if(isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+        }
+    
+        if(isset($_SESSION['usertype'])) {
+            $usertype = $_SESSION['usertype'];
+        }
+    
         if($username == null){
-            
             echo '<i class="fa fa-sign-in-alt" aria-hidden="true"></i> sign up';
         }else{
             echo '<i class="fa fa-user" aria-hidden="true"></i> sign out,'.$username;
         }
     }
+    function clearsession(){
+        session_destroy();//to clear all the sessions
+    }
+?>
+    

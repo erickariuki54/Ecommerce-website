@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="./assets/css/style.css">
 <script src="./assets/frameworks/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./assets/js/passwordvalidation.js"></script>
+<script src="./assets/js/passwordvalidation.js?1"></script>
 <title>sign up</title>
 </head>
 <body class="background">
@@ -43,7 +43,23 @@
         </div>
     </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="./assets/frameworks/node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  function capitalizeFirstLetter(input) {
+    // Convert the first character to uppercase on keyup
+    input.on('keyup', function() {
+      var val = input.val();
+      input.val(val.charAt(0).toUpperCase() + val.slice(1));
+    });
+  }
+
+  // Call the function for any input field that needs to capitalize the first letter
+  capitalizeFirstLetter($('#firstname'));
+  capitalizeFirstLetter($('#lastname'));
+});
+
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 </body>
