@@ -25,9 +25,9 @@ $user_id = $userDataArray[2] ?? '';
 if($usertype == 1){
   redirect_to('./dashboard.php');
 }elseif($usertype == null){
-  header("Refresh: 1; url=./login.php");
+  //header("Refresh: 1; url=./login.php");
 
-  //redirect_to('./login.php');
+  redirect_to('./login.php');
 }
 
 
