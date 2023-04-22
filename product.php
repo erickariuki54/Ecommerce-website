@@ -1,9 +1,9 @@
 <?php 
-include "./include/datetime.php";
-include './include/db.php';
-include './include/functions.php';
-include './include/session.php';
-include './include/css_js.php';/*css and js files for bootstrap and jquery*/
+include "include/datetime.php";
+include 'include/db.php';
+include 'include/functions.php';
+include 'include/session.php';
+include 'include/css_js.php';/*css and js files for bootstrap and jquery*/
 //username and id
 $userData = login();
 // Split the user data string into an array

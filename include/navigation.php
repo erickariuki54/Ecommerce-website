@@ -7,6 +7,13 @@ include_once "session.php";
   .navbar {
     z-index: 999;/*to bring forward the text instead of the back */ 
   }
+    @media (max-width: 768px) {
+      #logo{
+        font-size: 80%;
+      }
+
+      
+    }
     
 </style>
 <div class="container-fluid">
@@ -17,7 +24,7 @@ include_once "session.php";
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#side" aria-controls="side" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-dice-three    "></i>
   
                     </button>
-                    <a class="navbar-brand" style="color:blue; font-size:30px;">Royal Technologies</a>
+                    <a class="navbar-brand" style="color:blue; font-size:30px;"><span id="logo"> Royal Technologies </span></a>
                     <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
