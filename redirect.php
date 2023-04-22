@@ -187,11 +187,11 @@ elseif(isset($GET['badgenumber'])){/*badge number */
     header('Content-Type: application/json');
     echo json_encode($execute);
 }
-elseif(isset($_POST['query'])){
+elseif(isset($_POST['query'])){/*search query*/
   $search = $_POST['query'];
   $sql = "SELECT * FROM products WHERE name LIKE '%".$search."%'";
   $result = mysqli_query($conn, $sql);
-  $output = '<ul class="list-unstyled">';
+  $output = '<div class="alert alert-dismissible"><button type="button" class="close search1" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><ul class="list-unstyled">';
   if(mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_array($result)) {
       $id = $row['id'];
@@ -200,8 +200,15 @@ elseif(isset($_POST['query'])){
   } else {
     $output .= '<li>No results found</li>';
   }
-  $output .= '</ul>';
+  $output .= '</ul></div>';
   echo $output;
+  //to handle the dismiss button 
+  echo "<script>$('.close').click(function() {
+    $('#search').val('');
+    $('#searchResults').hide();
+  });</script>";
+
+  
 }
  
 ob_end_flush();

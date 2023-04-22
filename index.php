@@ -208,9 +208,10 @@ function addToCart(product_id,product_name,username,category) {
 
     success: function(response) {
       //alert(response);
+      updateCartBadge();
     }
   });
-  updateCartBadge();
+  
 }
 function updateCartBadge() {
   // Send an AJAX request to fetch the updated badge count from the server

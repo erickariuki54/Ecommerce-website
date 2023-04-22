@@ -14,7 +14,7 @@ include_once "session.php";
             <div class="nav">
                   
                 <nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed" style="width: 100%;">
-                    <button data-toggle="collapse" data-target="#side"><i class="fas fa-dice-three    "></i>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#side" aria-controls="side" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-dice-three    "></i>
   
                     </button>
                     <a class="navbar-brand" style="color:blue; font-size:30px;">Royal Technologies</a>
@@ -59,18 +59,26 @@ include_once "session.php";
                 </nav>
         </div>
         <div class="row">
-            <div class="col-sm-2 collapse show"id="side" style="top: 71px;margin-right:40px;" >
+            <div class="col-sm-2 collapse d-md-block"id="side" style="top: 71px;margin-right:40px;" >
               <div class="navbar navbar-dark position-fixed bg-light"  >
                   <ul class="navbar-nav" style="height: 600px;">
                       <li class="nav-item" style="color: grey;">categories</li>
                       <li class="nav-item"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> Phones</a></li>
                       <li class="nav-item"><a href="#"> <i class="fa fa-laptop" aria-hidden="true"></i> laptops</a></li>
                       <li class="nav-item"><a href="#"><i class="fas fa-toolbox    "></i> accessories</a></li>
-                      <li><div class="dropdown-menu" aria-labelledby="searchResults" id="searchResults"></div></li>
                       
                   </ul>
               </div>
             </div>
+        </div>
+        <div class="row position-fixed" style="z-index: 999;top:11% ;left:40%">
+        
+        <div class="bg-light" aria-labelledby="searchResults" id="searchResults"> </div>
+
+
+        </div>
+      
+
 
 <!--add funtionality to the search button-->
 <script src="./assets/frameworks/node_modules/jquery/dist/jquery.min.js"></script>
@@ -92,8 +100,11 @@ include_once "session.php";
       });
     } else {
       $('#searchResults').hide();
+      
     }
   });
+  
+
 });
 
 </script>
