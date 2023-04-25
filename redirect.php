@@ -137,7 +137,7 @@ elseif (isset($_POST['product_id'])) {
   
   $_SESSION['cart'][] = $item;
   
-  echo "Product added to cart successfully. $product_name, $username, $category, $product_id";
+  echo "$product_name added to cart successfully.";
 }
 }elseif(isset($_POST["cartItemId"])){/*to add the quantity value to the database*/
     $cartItemId = $_POST['cartItemId'];

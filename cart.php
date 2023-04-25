@@ -37,6 +37,11 @@ $user_id = $userDataArray[2] ?? '';
 .navbar {
   z-index: 999;
 }
+@media (min-width:800px){
+  .table1{
+    margin-left:12% ;
+  }
+}
 
 </style>
 
@@ -59,10 +64,10 @@ if($username == !null){
     <div class="row">
       
       <div class="col-sm-8">
-        <table class="table table1 table-striped table-fluid"><!--cart table start-->
+        <table class="table table1  text-dark table-hover table-responsive"><!--cart table start-->
           <thead>
             <tr>
-              <th scope="col">S/No <?php echo $username;?></th>
+              <th scope="col">S/No</th>
               <th scope="col">Product Name</th>
               <th scope="col">Quantity</th>
               <th scope="col">Price</th>

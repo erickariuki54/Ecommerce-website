@@ -66,10 +66,11 @@ if($usertype == 1){
            
             <div class=" container-fluid col-sm-10 "style="padding-top: 70px;">
             <div class="col-sm-2"><!--placeholder for col-sm-2--></div>
-            <span>
+            <div id="message" class="position-fixed bg-warning" style="z-index: 999; width:100%;">
+            
                 <?php echo Message();
                  echo SuccessMessage();
-               ?></span>
+               ?></div>
                
                 <!--banner-->
                 
@@ -207,7 +208,21 @@ function addToCart(product_id,product_name,username,category) {
     data: {product_id: product_id, product_name: product_name, username: username, category: category},
 
     success: function(response) {
-      //alert(response);
+      
+      // select the message element
+      var $message = $('#message');
+
+      // change the message text and fade it in
+      $message.text(response).fadeIn();
+
+      // set timeout for 2 seconds
+      setTimeout(function() {
+        // fade out and clear the message element
+        $message.fadeOut(function() {
+          $(this).empty().show();
+        });
+      }, 2000); // 2000 milliseconds = 2 seconds
+      
       updateCartBadge();
     }
   });

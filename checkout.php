@@ -1,4 +1,5 @@
 <?php 
+
 include "./include/db.php";
 include "./include/session.php";
 include "./include/functions.php";
@@ -58,7 +59,7 @@ $query = "SELECT * FROM users WHERE username='$username'";
             <div class="bg-light">
                 
                   <div class="cartitems">
-                    <table class="table">
+                    <table class="table bg-light table-responsive">
                       <tr>
                         <th>S/NO</th>
                         <th>NAME</th>

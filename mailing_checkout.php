@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include "./include/db.php";
 include "./include/session.php";
 include "./include/functions.php";
@@ -101,4 +102,5 @@ if(isset($_POST['checkout'])&& $username == !null){
         header("Refresh: 1; url=./checkout.php");
     }
 }
+ob_end_flush();
 ?>

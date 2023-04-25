@@ -50,6 +50,8 @@ if(isset($_GET['id'])){
     </div>
            
             <div class="col-sm-10  container-fluid " style="margin-top:70px;">
+            <div id="message" class="position-fixed bg-warning" style="z-index: 999; width:100%;">
+            </div>
                 <h1><?php echo $name;?></h1>
                 <div class="productimg " style="margin-left:40%;">
 
@@ -88,7 +90,19 @@ function addToCart(product_id,product_name,username,category) {
     data: {product_id: product_id, product_name: product_name, username: username, category: category},
 
     success: function(response) {
-      //alert(response);
+      // select the message element
+      var $message = $('#message');
+
+      // change the message text and fade it in
+      $message.text(response).fadeIn();
+
+      // set timeout for 2 seconds
+      setTimeout(function() {
+        // fade out and clear the message element
+        $message.fadeOut(function() {
+          $(this).empty().show();
+        });
+      }, 2000); // 2000 milliseconds = 2 seconds
       updateCartBadge();
     }
   });
