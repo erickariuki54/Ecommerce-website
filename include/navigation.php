@@ -39,7 +39,7 @@ include_once "session.php";
                                     <a class="dropdown-item" href="./index.php?#phones"><i class="fa fa-phone" aria-hidden="true"></i> Phones</a>
                                     <a class="dropdown-item" href="./index.php?#laptops"><i class="fa fa-laptop" aria-hidden="true"></i> laptops</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#tab4Id"> accessories</a>
+                                    <a class="dropdown-item" href="./index.php?#accessories"> accessories</a>
                                 </div>
                             </li>
                             <li class="nav-item active">
@@ -70,9 +70,9 @@ include_once "session.php";
               <div class="navbar navbar-dark position-fixed bg-light"  >
                   <ul class="navbar-nav" style="height: 600px;">
                       <li class="nav-item" style="color: grey;">categories</li>
-                      <li class="nav-item"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> Phones</a></li>
-                      <li class="nav-item"><a href="#"> <i class="fa fa-laptop" aria-hidden="true"></i> laptops</a></li>
-                      <li class="nav-item"><a href="#"><i class="fas fa-toolbox    "></i> accessories</a></li>
+                      <li class="nav-item"><a href="./index.php?#phones"><i class="fa fa-phone" aria-hidden="true"></i> Phones</a></li>
+                      <li class="nav-item"><a href="./index.php?#laptops"> <i class="fa fa-laptop" aria-hidden="true"></i> laptops</a></li>
+                      <li class="nav-item"><a href="./index.php?#accessories"><i class="fas fa-toolbox    "></i> accessories</a></li>
                       
                   </ul>
               </div>

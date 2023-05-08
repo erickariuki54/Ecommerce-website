@@ -183,12 +183,56 @@ if($usertype == 1){
                           
                           <p class="lead"><?php echo $details; ?></p>
                           <button onclick="addToCart(<?php echo $id;?>,'<?php echo $name;?>','<?php echo $username;?>' ,'<?php echo $category;?>')" class="btn btn-warning btn-block">Add to Cart</button>
-                          <a class="btn btn-primary btn-lg btn-block" href="#" role="button">ksh <?php echo $price; ?></a>
+                          <a class="btn btn-primary btn-lg btn-block" href="product.php?id=<?php echo $id;?>" role="button">ksh <?php echo $price; ?></a>
                         </div>
                       </div></div>
                       <?php  }?>
                     
                   </div>
+                  <!--accessories-->
+                  <h2 id="accessories">accessories</h2>
+                  <div class="owl-carousel owl-carousel-2">
+                    
+                        <?php 
+                            $viewQuery= "SELECT * FROM products WHERE category='accessories'" ;
+                            $execute = mysqli_query($conn, $viewQuery);
+                            while($datarows=mysqli_fetch_array($execute)){
+                                $id= $datarows["id"];
+                                $datetime =$datarows["datetime"];
+                                $name =$datarows["name"];
+                                $category =$datarows["category"];
+                                $quantity =$datarows["quantity"];
+                                $image =$datarows["image"];
+                                $price =$datarows["price"];
+                                $details = $datarows["description"];
+                                //limit the number of words in the description
+                                if(strlen($details)>150){
+                                  $details = substr($details,0,150)."...";
+                                }
+                                //limit the product name
+                                if(strlen($name)>12){
+                                  $name = substr($name,0,10)."...";
+                                }
+                                
+
+                            
+                            
+                            ?>
+                        <div class="item"><div class="jumbotron jumbotron-fluid" >
+                        <div class="container">
+                          <h1 class="display-4"><?php echo $name; ?></h1>
+                          <img src="./assets/images/accessories/<?php echo $image;?>" alt="<?php $name;?>" height="200px" width="100px">
+                          
+                          <p class="lead"><?php echo $details; ?></p>
+                          <button onclick="addToCart(<?php echo $id;?>,'<?php echo $name;?>','<?php echo $username;?>' ,'<?php echo $category;?>')" class="btn btn-warning btn-block">Add to Cart</button>
+                          <a class="btn btn-primary btn-lg btn-block" href="product.php?id=<?php echo $id;?>" role="button">ksh <?php echo $price; ?></a>
+                        </div>
+                      </div></div>
+                      <?php  }?>
+                    
+                  </div>
+                  <!--end of accessories-->
+                  
                   <?php Login();?>
                   
                   
