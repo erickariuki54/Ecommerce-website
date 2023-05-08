@@ -20,7 +20,24 @@ global $conn;
 
 <title>admin</title>
 <style>
-  
+  @media screen and (max-width: 585px) {
+    #sideul {
+      z-index: 888;
+      top:9%;
+      background-color: rgb(54, 56, 59);
+      
+      width: 100%;
+      margin-bottom: 500px;
+    }
+
+  }
+  @media screen and (min-width: 585px) {
+    #sideul {
+      z-index: 888;
+      top:25%;
+    }
+
+  }
 </style>
 </head>
 <body>
@@ -53,18 +70,18 @@ global $conn;
               </nav>
           </div><!--end of top nav-->
           <div class="row" style="margin-top: 50px;">
-            <div class="col-sm-2 d-md-block collapse navbar-collapse bg-dark" id="side" ><!--side navigation-->
-                  <ul class="nav navbar-nav position-fixed" style="z-index: 888;top:25%;">
-                      <li class="nav-item "> <a class="nav-link" href="./dashboard.php?#users"><i class="fa fa-users" aria-hidden="true"></i>users</a></li>      
-                      <li class="nav-item "> <a class="nav-link" href="#deleteuser"><i class="fa fa-users" aria-hidden="true"></i>remove users</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="./dashboard.php?#products">products</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="./addproducts.php">add products</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="./dashboard.php?#removeproducts">remove products</a></li>
-                      
-                  
-                  </ul>
-  
-              </div>
+          <div class="col-sm-2 d-md-block collapse navbar-collapse bg-dark" id="side" ><!--side navigation-->
+            <ul class="nav navbar-nav position-fixed "id="sideul">
+                <li class="nav-item "> <a class="nav-link" href="./dashboard.php?#users"><i class="fa fa-users" aria-hidden="true"></i>users</a></li>      
+                <li class="nav-item "> <a class="nav-link" href="#deleteuser"><i class="fa fa-users" aria-hidden="true"></i>remove users</a></li>
+                <li class="nav-item"> <a class="nav-link" href="./dashboard.php?#products">products</a></li>
+                <li class="nav-item"> <a class="nav-link" href="./addproducts.php">add products</a></li>
+                <li class="nav-item"> <a class="nav-link" href="./dashboard.php?#removeproducts">remove products</a></li>
+                
+            
+            </ul>
+
+          </div>
               <div class="col-sm-10">
               <h1 class="text-center">administrator</h1>
               <hr>
@@ -72,8 +89,8 @@ global $conn;
                 <?php echo SuccessMessage();
                   echo Message();?>
                 </span>
-                  <h1 id="users">users</h1>
-                  <p id="users" class="bg-warning position-sticky" style="position: sticky;top: 8%;">user</p>
+                  <h1>users</h1>
+                  <p id="users" class="bg-warning position-sticky" style="position: sticky;top: 9%;">user</p>
                   <div id="usertable">
                       <table class="table table-responsive bg-success">
                         <tr>
@@ -128,9 +145,9 @@ global $conn;
                         <?php }?>
                       </table>
                   </div><!--end of user table-->
-                  <div class="products" id="products"><!--start of products table-->
+                  <div class="products"><!--start of products table-->
                       <h4>products</h4>
-                      <p id="products" class="bg-warning position-sticky" style="position: sticky;top: 8%;"> products</p>
+                      <p id="products" class="bg-warning position-sticky" style="position: sticky;top: 9%;"> products</p>
                       <div class="table ">
                         <table class="table table-responsive bg-success">
                           <tr>
