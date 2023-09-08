@@ -78,13 +78,13 @@ if(isset($_POST['checkout'])&& $username == !null){
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'erickariukiwairimu@gmail.com'; // replace with your actual Gmail email address
-        $mail->Password = 'sbrrceedcljiadpi'; // inapp  gmail password
+        $mail->Username = 'example@gmail.com'; // replace with your actual Gmail email address
+        $mail->Password = ''; // inapp  gmail password
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
     
         // Recipients
-        $mail->setFrom('erickariukiwairimu@gmail.com', 'ROYAL TEC ONLINE SHOPPING');
+        $mail->setFrom('example@gmail.com', 'ROYAL TEC ONLINE SHOPPING');
         $mail->addAddress($to);
     
         // Email content
